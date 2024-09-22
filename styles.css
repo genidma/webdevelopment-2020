@@ -1,23 +1,58 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-y: auto; /* Allow vertical scrolling */
+}
+
 body {
-	background-color: powderblue;
+  background-color: powderblue; /* Set desired background color */
+  padding-bottom: 150px; /* Leave space for #permas */
 }
-h1 {
-	color: blue;
+
+h1, h2, h3, h4, h5, h6 {
+  color: blue; /* Adjust as needed */
 }
-h2 {
-	color: black;
-}
+
 p {
-	color:brown;
+  color: brown;
 }
 
-
-/* Columns using css */
-/* Tutorial via the following links: https://www.w3schools.com/howto/howto_css_two_columns.asp
-and https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_two_columns */
-.column {
-	float: left;
-	width: 50%
+/* Scrolling area */
+#permas {
+  height: 150px; /* Fixed height for the scrolling area */
+  background: blue; /* Background color for visibility */
+  overflow: hidden; /* Hide overflow to keep scrolling clean */
+  white-space: nowrap; /* Prevent line breaks */
+  position: relative; /* Ensure proper positioning */
 }
 
-/* Clear floats after the columns */
+.scroller {
+  height: 100%; /* Ensure images fill the height */
+  display: inline-block; /* Keep images inline for scrolling */
+  animation: scroll 10s linear infinite; /* Add scrolling animation */
+}
+
+/* Light bulb icon */
+img[src="https://www.w3schools.com/images/lamp.jpg"] {
+  max-width: 100px; /* Set a maximum width for the light bulb icon */
+  height: auto; /* Maintain aspect ratio */
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(100%); /* Start from the right */
+  }
+  100% {
+    transform: translateX(-100%); /* Move to the left */
+  }
+}
