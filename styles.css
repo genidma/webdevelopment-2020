@@ -27,32 +27,18 @@ p {
   color: brown;
 }
 
-/* Scrolling area */
-#permas {
-  height: 150px; /* Fixed height for the scrolling area */
-  background: blue; /* Background color for visibility */
-  overflow: hidden; /* Hide overflow to keep scrolling clean */
-  white-space: nowrap; /* Prevent line breaks */
-  position: relative; /* Ensure proper positioning */
+div.scroll-container {
+  background-color: #333;
+  overflow: auto;
+  white-space: nowrap;
+  padding: 10px;
 }
 
-.scroller {
-  height: 100%; /* Ensure images fill the height */
-  display: inline-block; /* Keep images inline for scrolling */
-  animation: scroll 10s linear infinite; /* Add scrolling animation */
+div.scroll-container img {
+  padding: 10px;
 }
-
 /* Light bulb icon */
 img[src="https://www.w3schools.com/images/lamp.jpg"] {
   max-width: 100px; /* Set a maximum width for the light bulb icon */
   height: auto; /* Maintain aspect ratio */
-}
-
-@keyframes scroll {
-  0% {
-    transform: translateX(100%); /* Start from the right */
-  }
-  100% {
-    transform: translateX(-100%); /* Move to the left */
-  }
 }
