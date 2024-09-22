@@ -42,3 +42,7 @@ img[src="https://www.w3schools.com/images/lamp.jpg"] {
   max-width: 100px; /* Set a maximum width for the light bulb icon */
   height: auto; /* Maintain aspect ratio */
 }
+
+nav {
+  display: block;
+}
