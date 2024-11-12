@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mermaid Gantt Chart</title>
+  <meta charset="utf-8"/>
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({ startOnLoad: true });
+  </script>
+</head>
+<body>
+  <div class="mermaid">
+    gantt
+      title Work-Life Rebalancing Plan
+      dateFormat  YYYY-MM-DD
+      section Work
+      Analyze Current Schedule    :a1, 2024-11-11, 5d
+      Identify Essential Tasks    :a2, after a1, 5d
+      Create New Work Systems    :a3, after a2, 10d
+      Transition Period          :a4, after a3, 15d
+
+      section Family & Personal
+      Quality Time Blocking      :b1, 2024-11-11, 30d
+      Establish Routines        :b2, 2024-11-15, 14d
+      Social Activities         :b3, 2024-11-20, 25d
+      
+      section Health & Wellbeing
+      Set Boundaries            :c1, 2024-11-11, 7d
+      Develop New Habits        :c2, after c1, 21d
+      Regular Exercise          :c3, 2024-11-15, 25d
+  </div>
+</body>
+</html>
