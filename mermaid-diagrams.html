@@ -40,11 +40,14 @@
 
   <!-- Content from https://asi.surge.sh/ -->
   <h2>Architectural Plans</h2>
-  <p>Using the information from the website, here are some architectural plans:</p>
-  <ul>
-    <li>Plan 1: Design a modern, eco-friendly house with solar panels and rainwater harvesting system.</li>
-    <li>Plan 2: Create a community park with walking trails, playgrounds, and picnic areas.</li>
-    <li>Plan 3: Develop a mixed-use building with retail shops on the ground floor and residential apartments above.</li>
-  </ul>
+  <div class="mermaid">
+    gantt
+      title Architectural Plans
+      dateFormat  YYYY-MM-DD
+      section Design
+      Modern Eco-Friendly House    :d1, 2024-12-01, 10d
+      Community Park              :d2, after d1, 20d
+      Mixed-Use Building          :d3, after d2, 30d
+  </div>
 </body>
 </html>
