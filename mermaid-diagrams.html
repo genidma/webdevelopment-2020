@@ -7,6 +7,13 @@
     import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
     mermaid.initialize({ startOnLoad: true });
   </script>
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://unpkg.com/cytoscape/dist/cytoscape.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jointjs/3.4.2/joint.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jointjs/3.4.2/joint.min.css">
 </head>
 <body>
   <div class="mermaid">
@@ -60,5 +67,177 @@
       Augmented Reality Enhancements :e2, after e1, 20d
       Mixed Reality Applications     :e3, after e2, 25d
   </div>
+
+  <!-- D3.js Example -->
+  <h2>D3.js Example</h2>
+  <p>D3.js is a powerful library for creating dynamic and interactive data visualizations using HTML, SVG, and CSS.</p>
+  <div id="d3-example"></div>
+  <script>
+    const d3Data = [10, 20, 30, 40, 50];
+    const d3Width = 500;
+    const d3Height = 100;
+    const d3Svg = d3.select("#d3-example")
+                    .append("svg")
+                    .attr("width", d3Width)
+                    .attr("height", d3Height);
+    d3Svg.selectAll("rect")
+         .data(d3Data)
+         .enter()
+         .append("rect")
+         .attr("x", (d, i) => i * 30)
+         .attr("y", d => d3Height - d)
+         .attr("width", 25)
+         .attr("height", d => d)
+         .attr("fill", "blue");
+  </script>
+
+  <!-- Chart.js Example -->
+  <h2>Chart.js Example</h2>
+  <p>Chart.js is a simple yet flexible JavaScript charting library for designers and developers.</p>
+  <canvas id="chartjs-example" width="400" height="200"></canvas>
+  <script>
+    const ctx = document.getElementById('chartjs-example').getContext('2d');
+    const chart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        datasets: [{
+          label: '# of Votes',
+          data: [12, 19, 3, 5, 2, 3],
+          backgroundColor: [
+            'rgba(255, 99, 132, 0.2)',
+            'rgba(54, 162, 235, 0.2)',
+            'rgba(255, 206, 86, 0.2)',
+            'rgba(75, 192, 192, 0.2)',
+            'rgba(153, 102, 255, 0.2)',
+            'rgba(255, 159, 64, 0.2)'
+          ],
+          borderColor: [
+            'rgba(255, 99, 132, 1)',
+            'rgba(54, 162, 235, 1)',
+            'rgba(255, 206, 86, 1)',
+            'rgba(75, 192, 192, 1)',
+            'rgba(153, 102, 255, 1)',
+            'rgba(255, 159, 64, 1)'
+          ],
+          borderWidth: 1
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+  </script>
+
+  <!-- Cytoscape.js Example -->
+  <h2>Cytoscape.js Example</h2>
+  <p>Cytoscape.js is a graph theory library for visualizing and analyzing complex networks.</p>
+  <div id="cytoscape-example" style="width: 600px; height: 400px;"></div>
+  <script>
+    const cy = cytoscape({
+      container: document.getElementById('cytoscape-example'),
+      elements: [
+        { data: { id: 'a' } },
+        { data: { id: 'b' } },
+        { data: { id: 'c' } },
+        { data: { id: 'd' } },
+        { data: { id: 'e' } },
+        { data: { id: 'a', source: 'a', target: 'b' } },
+        { data: { id: 'b', source: 'b', target: 'c' } },
+        { data: { id: 'c', source: 'c', target: 'd' } },
+        { data: { id: 'd', source: 'd', target: 'e' } },
+        { data: { id: 'e', source: 'e', target: 'a' } }
+      ],
+      style: [
+        {
+          selector: 'node',
+          style: {
+            'background-color': '#666',
+            'label': 'data(id)'
+          }
+        },
+        {
+          selector: 'edge',
+          style: {
+            'width': 3,
+            'line-color': '#ccc',
+            'target-arrow-color': '#ccc',
+            'target-arrow-shape': 'triangle'
+          }
+        }
+      ],
+      layout: {
+        name: 'grid',
+        rows: 2
+      }
+    });
+  </script>
+
+  <!-- Vis.js Example -->
+  <h2>Vis.js Example</h2>
+  <p>Vis.js is a dynamic, browser-based visualization library that includes timelines, 2D/3D graphs, and more.</p>
+  <div id="visjs-example" style="width: 600px; height: 400px;"></div>
+  <script>
+    const visData = new vis.DataSet([
+      { id: 1, content: 'item 1', start: '2024-04-20' },
+      { id: 2, content: 'item 2', start: '2024-04-14' },
+      { id: 3, content: 'item 3', start: '2024-04-18' },
+      { id: 4, content: 'item 4', start: '2024-04-16' },
+      { id: 5, content: 'item 5', start: '2024-04-25' },
+      { id: 6, content: 'item 6', start: '2024-04-27' }
+    ]);
+    const visContainer = document.getElementById('visjs-example');
+    const visOptions = {};
+    const visTimeline = new vis.Timeline(visContainer, visData, visOptions);
+  </script>
+
+  <!-- JointJS Example -->
+  <h2>JointJS Example</h2>
+  <p>JointJS is a diagramming library that provides a flexible way to create and interact with diagrams and graphs.</p>
+  <div id="jointjs-example" style="width: 600px; height: 400px;"></div>
+  <script>
+    const graph = new joint.dia.Graph();
+    const paper = new joint.dia.Paper({
+      el: document.getElementById('jointjs-example'),
+      model: graph,
+      width: 600,
+      height: 400,
+      gridSize: 10
+    });
+    const rect = new joint.shapes.standard.Rectangle();
+    rect.position(100, 30);
+    rect.resize(100, 40);
+    rect.attr({
+      body: {
+        fill: 'blue'
+      },
+      label: {
+        text: 'Hello',
+        fill: 'white'
+      }
+    });
+    rect.addTo(graph);
+    const circle = new joint.shapes.standard.Circle();
+    circle.position(300, 30);
+    circle.resize(100, 40);
+    circle.attr({
+      body: {
+        fill: 'green'
+      },
+      label: {
+        text: 'World',
+        fill: 'white'
+      }
+    });
+    circle.addTo(graph);
+    const link = new joint.shapes.standard.Link();
+    link.source(rect);
+    link.target(circle);
+    link.addTo(graph);
+  </script>
 </body>
 </html>
